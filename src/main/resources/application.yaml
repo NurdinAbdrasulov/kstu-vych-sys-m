@@ -1,0 +1,31 @@
+server:
+  port: ${PROJECT_PORT:9090}
+
+spring:
+  application.name: lb
+
+  liquibase:
+    enabled: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: pa$$word
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+
+encryption:
+  secret-key: hr8$AY!A%iJMcb9ukcIaNaDEzE16@p
+  algorithm: AES
+
+decryption-time: ${DECRYPTION_TIME:10}
+
+
+sti-service:
+  connect-timeout: 30
+  read-timeout: 30
