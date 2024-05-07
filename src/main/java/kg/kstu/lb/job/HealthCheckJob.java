@@ -19,7 +19,7 @@ public class HealthCheckJob {
 
     HealthCheckServiceImpl service;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 1000)
     public void checkServersHealth(){
         log.info("job started");
 

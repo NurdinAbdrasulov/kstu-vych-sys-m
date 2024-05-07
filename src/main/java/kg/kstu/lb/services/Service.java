@@ -1,12 +1,13 @@
 package kg.kstu.lb.services;
 
-import kg.kstu.lb.dto.DecryptRequest;
-import kg.kstu.lb.dto.DecryptResponse;
-import kg.kstu.lb.dto.StatusDto;
+import kg.kstu.lb.dto.*;
+
+import java.util.List;
 
 public interface Service {
-    StatusDto getStatus();
+    List<NodeDto> getStatus();
 
     DecryptResponse decrypt(DecryptRequest request);
 
+    DecryptResponse encrypt(EncryptRequest request);
 }

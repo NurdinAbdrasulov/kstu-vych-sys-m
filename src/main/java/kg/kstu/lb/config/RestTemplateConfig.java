@@ -27,7 +27,7 @@ public class RestTemplateConfig {
         Long nodeId = 1L;
 
         return new RestTemplateBuilder()
-                .rootUri(String.join(":", nodeService.getById(nodeId).getIp(), nodeService.getById(nodeId).getPort()))
+                .rootUri(String.format("http://%s:%s", nodeService.getById(nodeId).getIp(), nodeService.getById(nodeId).getPort()))
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString())
                 .setConnectTimeout(Duration.ofSeconds(this.properties.getConnectTimeout()))
                 .setReadTimeout(Duration.ofSeconds(this.properties.getReadTimeout()))
@@ -39,7 +39,7 @@ public class RestTemplateConfig {
         Long nodeId = 2L;
 
         return new RestTemplateBuilder()
-                .rootUri(String.join(":", nodeService.getById(nodeId).getIp(), nodeService.getById(nodeId).getPort()))
+                .rootUri(String.format("http://%s:%s", nodeService.getById(nodeId).getIp(), nodeService.getById(nodeId).getPort()))
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString())
                 .setConnectTimeout(Duration.ofSeconds(this.properties.getConnectTimeout()))
                 .setReadTimeout(Duration.ofSeconds(this.properties.getReadTimeout()))
@@ -51,7 +51,32 @@ public class RestTemplateConfig {
         Long nodeId = 3L;
 
         return new RestTemplateBuilder()
-                .rootUri(String.join(":", nodeService.getById(nodeId).getIp(), nodeService.getById(nodeId).getPort()))
+                .rootUri(String.format("http://%s:%s", nodeService.getById(nodeId).getIp(), nodeService.getById(nodeId).getPort()))
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString())
+                .setConnectTimeout(Duration.ofSeconds(this.properties.getConnectTimeout()))
+                .setReadTimeout(Duration.ofSeconds(this.properties.getReadTimeout()))
+                .build();
+    }
+
+
+    @Bean
+    public RestTemplate nodeFourRestTemplate() {
+        Long nodeId = 4L;
+
+        return new RestTemplateBuilder()
+                .rootUri(String.format("http://%s:%s", nodeService.getById(nodeId).getIp(), nodeService.getById(nodeId).getPort()))
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString())
+                .setConnectTimeout(Duration.ofSeconds(this.properties.getConnectTimeout()))
+                .setReadTimeout(Duration.ofSeconds(this.properties.getReadTimeout()))
+                .build();
+    }
+
+    @Bean
+    public RestTemplate nodeFiveRestTemplate() {
+        Long nodeId = 5L;
+
+        return new RestTemplateBuilder()
+                .rootUri(String.format("http://%s:%s", nodeService.getById(nodeId).getIp(), nodeService.getById(nodeId).getPort()))
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString())
                 .setConnectTimeout(Duration.ofSeconds(this.properties.getConnectTimeout()))
                 .setReadTimeout(Duration.ofSeconds(this.properties.getReadTimeout()))
