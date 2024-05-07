@@ -17,13 +17,13 @@ import static lombok.AccessLevel.PRIVATE;
 @Slf4j
 public class HealthCheckJob {
 
-    HealthCheckServiceImpl jobService;
+    HealthCheckServiceImpl service;
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 5000)
     public void checkServersHealth(){
         log.info("job started");
 
-//        healthCheckService.checkEsfHealth();
+        service.check();
 
         log.info("job ended");
     }

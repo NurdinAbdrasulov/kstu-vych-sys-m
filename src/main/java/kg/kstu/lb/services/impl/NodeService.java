@@ -39,6 +39,11 @@ public class NodeService {
         return repo.findById(id).orElseThrow(() -> new BaseException("node with id %s not fount".formatted(id), HttpStatus.NOT_FOUND));
     }
 
+    public Node getAvailableNode(){
+        return repo.findDistinctFirstByStatus(Status.AVAILABLE)
+                .orElseThrow(() -> new BaseException("Всу узлы заняты, попробуйте позже", HttpStatus.OK));
+    }
+
 
     private NodeDto toNodeDto(Node node) {
         return NodeDto.builder()

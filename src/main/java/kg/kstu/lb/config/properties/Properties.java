@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Configuration;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Properties {
 
-    @Value("${sti-service.connect-timeout}")
+    @Value("${service.connect-timeout}")
     Long connectTimeout;
 
-    @Value("${sti-service.read-timeout}")
+    @Value("${service.read-timeout}")
     Long readTimeout;
 
 }

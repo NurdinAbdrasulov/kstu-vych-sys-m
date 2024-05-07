@@ -34,4 +34,28 @@ public class RestTemplateConfig {
                 .build();
     }
 
+    @Bean
+    public RestTemplate nodeTwoRestTemplate() {
+        Long nodeId = 2L;
+
+        return new RestTemplateBuilder()
+                .rootUri(String.join(":", nodeService.getById(nodeId).getIp(), nodeService.getById(nodeId).getPort()))
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString())
+                .setConnectTimeout(Duration.ofSeconds(this.properties.getConnectTimeout()))
+                .setReadTimeout(Duration.ofSeconds(this.properties.getReadTimeout()))
+                .build();
+    }
+
+    @Bean
+    public RestTemplate nodeThreeRestTemplate() {
+        Long nodeId = 3L;
+
+        return new RestTemplateBuilder()
+                .rootUri(String.join(":", nodeService.getById(nodeId).getIp(), nodeService.getById(nodeId).getPort()))
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString())
+                .setConnectTimeout(Duration.ofSeconds(this.properties.getConnectTimeout()))
+                .setReadTimeout(Duration.ofSeconds(this.properties.getReadTimeout()))
+                .build();
+    }
+
 }

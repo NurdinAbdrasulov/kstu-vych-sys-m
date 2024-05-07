@@ -8,7 +8,7 @@ spring:
     enabled: true
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/test
+    url: jdbc:postgresql://localhost:5432/lb
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: pa$$word
@@ -26,6 +26,6 @@ encryption:
 decryption-time: ${DECRYPTION_TIME:10}
 
 
-sti-service:
+service:
   connect-timeout: 30
   read-timeout: 30
